@@ -1,6 +1,5 @@
 // (Data service)
 import axios from 'axios';
-import authHeader from "@/services/ auth-header.js";
 
 
 const API_URL = 'http://localhost:8080/api/test/';
@@ -11,15 +10,15 @@ class UserService {
     }
 
     getUserBoard() {
-        return axios.get(API_URL + 'user', { headers: authHeader() });
+        return axios.get(API_URL + 'user');
     }
 
     getModeratorBoard() {
-        return axios.get(API_URL + 'mod', { headers: authHeader() });
+        return axios.get(API_URL + 'mod');
     }
 
     getAdminBoard() {
-        return axios.get(API_URL + 'admin', { headers: authHeader() });
+        return axios.get(API_URL + 'admin');
     }
 }
 

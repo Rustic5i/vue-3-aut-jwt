@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import EventBus from "@/common/EventBus.js";
+
 export default {
   computed: {
     currentUser() {
@@ -79,6 +81,14 @@ export default {
       this.$store.dispatch('auth/logout');
       this.$router.push('/login');
     }
-  }
+  },
+    mounted() {
+        EventBus.on("logout", () => {
+            this.logOut();
+        });
+    },
+    beforeDestroy() {
+        EventBus.remove("logout");
+    }
 };
 </script>
